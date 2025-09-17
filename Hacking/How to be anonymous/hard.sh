@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 # TE: Hardened Kali VM Setup Script (idempotent)
 # TE: Run this inside your Kali VM. Do NOT run on your host machine.

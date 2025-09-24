@@ -1,3 +1,4 @@
+
 # Global UFO Sightings Tracker (Product V1)
 
 An interactive web application built with Streamlit and Folium to visualize UFO sightings worldwide. Users can explore sightings by location, date range, shape, and search keywords, with real-time statistics.
@@ -33,3 +34,55 @@ Follow these steps to get the application running on your local machine.
 ```bash
 git clone <your-repo-link> # If you put it on GitHub
 cd ufo-interactive-map
+```
+If you're creating it manually as guided above, ensure your directory structure matches:
+```
+ufo-interactive-map/
+│── data/
+│   └── ufo_sightings.csv
+│── ufo_sightings.db          # Will be generated
+│── data_processor.py
+│── app.py
+│── requirements.txt
+│── README.md
+```
+
+### 2. Create a Virtual Environment and Install Dependencies
+
+```bash
+python -m venv venv
+# On Windows:
+.\venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+### 3. Data Collection
+
+-   **Download the Dataset:** Obtain a UFO sightings dataset in CSV format. A commonly used one can be found on Kaggle (e.g., `nuforc_reports.csv` or similar).
+-   **Place the CSV:** Save the downloaded CSV file as `ufo_sightings.csv` inside the `data/` folder.
+    (e.g., `ufo-interactive-map/data/ufo_sightings.csv`)
+
+### 4. Data Preprocessing
+
+Run the data processing script to clean the raw data and create the SQLite database:
+
+```bash
+python data_processor.py
+```
+This script will:
+-   Read `data/ufo_sightings.csv`.
+-   Clean missing values, normalize formats, and remove duplicates.
+-   Save the cleaned data to `data/ufo_cleaned.csv`.
+-   Create `ufo_sightings.db` (a SQLite database) in the project root.
+
+### 5. Run the Streamlit Application
+
+```bash
+streamlit run app.py
+```
+This command will open the interactive map application in your default web browser (usually at `http://localhost:8501`).
+
+
